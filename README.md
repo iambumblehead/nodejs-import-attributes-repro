@@ -40,7 +40,7 @@ test('loader cannot return fresh source, json', async () => {
   const importTwo = await import('./importing.js?t=4')
 
   assert.deepEqual(importOne.JSONobj, { example: 'json-3' })
-  // fails: importTwo.JSONobj == `{ example: 'json-3' }`
   assert.deepEqual(importTwo.JSONobj, { example: 'json-4' })
+  // ^^ fails: importTwo.JSONobj == `{ example: 'json-3' }`
 })
 ```
