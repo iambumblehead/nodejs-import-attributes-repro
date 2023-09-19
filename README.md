@@ -33,11 +33,11 @@ test('loader can return fresh source, js', async () => {
 // first version is seemingly cache-returned to any subsequently-importing 
 // context (not-desired behaviour)
 test('loader cannot return fresh source, json', async () => {
-  const importOne = await import('./importing.js?t=3')
-  const importTwo = await import('./importing.js?t=4')
+  const importThree = await import('./importing.js?t=3')
+  const importFour = await import('./importing.js?t=4')
 
-  assert.deepEqual(importOne.JSONobj, { example: 'json-3' })
-  assert.deepEqual(importTwo.JSONobj, { example: 'json-4' })
-  // ^^ fails: importTwo.JSONobj == `{ example: 'json-3' }`
+  assert.deepEqual(importThree.JSONobj, { example: 'json-3' })
+  assert.deepEqual(importFour.JSONobj, { example: 'json-4' })
+  // ^^ fails: importFour.JSONobj == `{ example: 'json-3' }`
 })
 ```
